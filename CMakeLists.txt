@@ -131,16 +131,18 @@ else()
 endif()
 
 add_definitions(
-  -DCURVE_${CURVE}
+  -DCURVE_ALT_BN128
+)
+
+add_definitions(
+  -DCURVE_BN128
 )
 
 enable_testing()
 
-if(${CURVE} STREQUAL "BN128")
-  add_definitions(
-    -DBN_SUPPORT_SNARK=1
-  )
-endif()
+add_definitions(
+  -DBN_SUPPORT_SNARK=1
+)
 
 if("${DEBUG}")
   add_definitions(-DDEBUG=1)
